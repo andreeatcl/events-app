@@ -1,6 +1,7 @@
 package ro.ase.pdm.events;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -43,8 +44,15 @@ public class AddActivity extends AppCompatActivity {
             String locul = editTextLocul.getText().toString();
             String descriere = editTextDescriere.getText().toString();
 
-            Eveniment eveniment = new Eveniment(denumire, categorie, data, locul, descriere);
-            Toast.makeText(this, "S-a salvat evenimentul" + eveniment, Toast.LENGTH_SHORT).show();
+            try {
+                Eveniment eveniment = new Eveniment(denumire, categorie, data, locul, descriere);
+                Toast.makeText(this, "S-a salvat evenimentul" + eveniment, Toast.LENGTH_LONG).show();
+                finish();
+            }
+            catch (Exception e) {
+                Log.e("Evenimente", "Eroare la adaugarea evenimentului");
+                Toast.makeText(this, "Date invalide. Incercati din nou.", Toast.LENGTH_LONG).show();
+            }
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

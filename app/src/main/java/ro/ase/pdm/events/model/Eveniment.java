@@ -7,13 +7,12 @@ public class Eveniment {
     String loculDesfasurarii;
     String descriere;
 
-    // de adaugat: validari de input
-    public Eveniment(String denumire, String categorie, String data, String loculDesfasurarii, String descriere) {
-        this.denumire = denumire;
-        this.categorie = categorie;
-        this.data = data;
-        this.loculDesfasurarii = loculDesfasurarii;
-        this.descriere = descriere;
+    public Eveniment(String denumire, String categorie, String data, String loculDesfasurarii, String descriere) throws Exception {
+        setDenumire(denumire);
+        setCategorie(categorie);
+        setData(data);
+        setLoculDesfasurarii(loculDesfasurarii);
+        setDescriere(descriere);
     }
 
     public Eveniment() {}
@@ -22,7 +21,9 @@ public class Eveniment {
         return denumire;
     }
 
-    public void setDenumire(String denumire) {
+    public void setDenumire(String denumire) throws Exception {
+        if (denumire.isEmpty() || !denumire.matches("^[A-Za-z0-9\\s]+$"))
+            throw new Exception("Denumirea evenimentului nu este valida.");
         this.denumire = denumire;
     }
 
@@ -30,7 +31,10 @@ public class Eveniment {
         return categorie;
     }
 
-    public void setCategorie(String categorie) {
+    public void setCategorie(String categorie) throws Exception {
+        if (categorie.isEmpty() || !categorie.matches("^[A-Za-z0-9\\s]+$"))
+            throw new Exception("Categoria evenimentului nu este valida.");
+
         this.categorie = categorie;
     }
 
@@ -38,7 +42,10 @@ public class Eveniment {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(String data) throws Exception {
+        if (data.isEmpty() || !data.matches("^\\d{2}/\\d{2}/\\d{4}\\s\\d{2}:\\d{2}$"))
+            throw new Exception("Data evenimentului nu este valida.");
+
         this.data = data;
     }
 
@@ -46,7 +53,10 @@ public class Eveniment {
         return loculDesfasurarii;
     }
 
-    public void setLoculDesfasurarii(String loculDesfasurarii) {
+    public void setLoculDesfasurarii(String loculDesfasurarii) throws Exception {
+        if (loculDesfasurarii.isEmpty() || !denumire.matches("^[A-Za-z0-9\\s]+$"))
+            throw new Exception("Adresa evenimentului nu este valida.");
+
         this.loculDesfasurarii = loculDesfasurarii;
     }
 
