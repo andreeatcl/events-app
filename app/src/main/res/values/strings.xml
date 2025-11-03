@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Aplicatie DAM</string>
+    <string name="despre">Despre</string>
+    <string name="despre_aplicatie">Despre aplicatie</string>
+    <string name="adauga_eveniment">Adauga eveniment</string>
+    <string name="main_activity">Evenimentele mele</string>
+    <string name="denumire">Denumire</string>
+    <string name="name">Name</string>
+    <string name="categorie">Categorie</string>
+    <string name="data">Data</string>
+    <string name="ora">Ora</string>
+    <string name="locul_placeholder">Locul desfasurarii</string>
+    <string name="descriere_placeholder">Descrieti eveniment</string>
+    <string name="salveaza">Salveaza</string>
+    <string name="denumire_placeholder">Numele evenimentului</string>
+    <string name="data_placeholder">27/11/2025</string>
+    <string name="ora_placeholder">17:00</string>
+    <string-array name="categorii">
+        <item>Conferinta</item>
+        <item>Hackathon</item>
+        <item>Targ de joburi</item>
+        <item>Workshop</item>
+        <item>Alta categorie</item>
+    </string-array>
+</resources>
