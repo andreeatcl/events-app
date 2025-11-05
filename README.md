@@ -29,6 +29,7 @@ Aplicatie dezvoltata in cadrul seminarului de **Dispozitive si Aplicatii Mobile*
 - _stilizare (culori, font, aliniere)_
 - _validarea datelor_
 <img width="711" height="400" alt="App Mockup" src="https://github.com/user-attachments/assets/8c448508-6803-4f08-8ed5-162081694cec" />
+
 -------
 ### Seminar 6
 - afisarea evenimentelor salvate intr-un *ListView*
