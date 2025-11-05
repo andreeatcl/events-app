@@ -1,5 +1,6 @@
 package ro.ase.pdm.events;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -47,6 +48,7 @@ public class AddActivity extends AppCompatActivity {
             try {
                 Eveniment eveniment = new Eveniment(denumire, categorie, data, locul, descriere);
                 Toast.makeText(this, "S-a salvat evenimentul" + eveniment, Toast.LENGTH_LONG).show();
+                setResult(RESULT_OK, new Intent().putExtra("TRANZACTIE", eveniment));
                 finish();
             }
             catch (Exception e) {

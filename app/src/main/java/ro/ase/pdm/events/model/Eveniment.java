@@ -1,6 +1,8 @@
 package ro.ase.pdm.events.model;
 
-public class Eveniment {
+import java.io.Serializable;
+
+public class Eveniment implements Serializable {
     String denumire;
     String categorie;
     String data;
