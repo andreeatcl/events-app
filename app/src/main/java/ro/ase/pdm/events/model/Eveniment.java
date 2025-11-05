@@ -15,7 +15,9 @@ public class Eveniment {
         setDescriere(descriere);
     }
 
-    public Eveniment() {}
+    public Eveniment() {
+        denumire = "Eveniment nou";
+    }
 
     public String getDenumire() {
         return denumire;

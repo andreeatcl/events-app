@@ -6,7 +6,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -18,8 +20,17 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import ro.ase.pdm.events.model.Eveniment;
+
 public class MainActivity extends AppCompatActivity {
 
+    List<Eveniment> evenimente = new ArrayList<>();
+    // ArrayAdapter<Eveniment> adaptor;
+    AdaptorEvenimente adaptor;
+    ListView listViewEvenimente;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +55,16 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        listViewEvenimente = findViewById(R.id.listViewEvenimente);
+        evenimente.add(new Eveniment());
+        evenimente.add(new Eveniment());
+        evenimente.add(new Eveniment());
+
+        // adaptor = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, evenimente);
+        adaptor = new AdaptorEvenimente(this, evenimente);
+        listViewEvenimente.setAdapter(adaptor);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
