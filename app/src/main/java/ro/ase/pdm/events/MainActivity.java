@@ -56,9 +56,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         listViewEvenimente = findViewById(R.id.listViewEvenimente);
-        evenimente.add(new Eveniment());
-        evenimente.add(new Eveniment());
-        evenimente.add(new Eveniment());
+        try {
+            evenimente.add(new Eveniment("ITFest Hackathon", "Hackathon", "20/11/2025 17:00", "Bucuresti, Romania", "Un hackathon pentru studentii CSIE"));
+            evenimente.add(new Eveniment("DevCon", "Conferinta", "25/11/2025 09:45", "Bucuresti, Romania", "O conferinta pentru dezvoltatori si pasionati de IT"));
+            evenimente.add(new Eveniment("ASE Job Fair", "Targ de joburi", "30/11/2025 12:30", "Bucuresti, Romania", "Un targ de joburi si internships destinat studentilor ASE"));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
         // adaptor = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, evenimente);
         adaptor = new AdaptorEvenimente(this, evenimente);

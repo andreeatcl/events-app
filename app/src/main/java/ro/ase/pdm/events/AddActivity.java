@@ -48,7 +48,7 @@ public class AddActivity extends AppCompatActivity {
             try {
                 Eveniment eveniment = new Eveniment(denumire, categorie, data, locul, descriere);
                 Toast.makeText(this, "S-a salvat evenimentul" + eveniment, Toast.LENGTH_LONG).show();
-                setResult(RESULT_OK, new Intent().putExtra("TRANZACTIE", eveniment));
+                setResult(RESULT_OK, new Intent().putExtra("EVENIMENT", eveniment));
                 finish();
             }
             catch (Exception e) {
