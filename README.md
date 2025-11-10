@@ -28,7 +28,7 @@ Aplicatie dezvoltata in cadrul seminarului de **Dispozitive si Aplicatii Mobile*
 - afisarea unui `Toast` la salvarea unui obiect Eveniment
 - _stilizare (culori, font, aliniere)_
 - _validarea datelor_
-<img width="711" height="400" alt="App Mockup" src="https://github.com/user-attachments/assets/8c448508-6803-4f08-8ed5-162081694cec" />
+<img width="1366" height="768" alt="App Mockup" src="https://github.com/user-attachments/assets/8c448508-6803-4f08-8ed5-162081694cec" />
 
 -------
 ### Seminar 6
@@ -37,7 +37,7 @@ Aplicatie dezvoltata in cadrul seminarului de **Dispozitive si Aplicatii Mobile*
 - implementarea unui adaptor custom `AdaptorEvenimente` pentru afisarea detaliilor despre evenimente
 - _popularea tuturor controalelor din macheta aferentă elementelor din listă_
 - _afișarea specifică a elementelor din listă (culoare diferită pe categorie de eveniment)_
-<img width="711" height="400" alt="app mockup sem6" src="https://github.com/user-attachments/assets/c41e68cc-8fda-4f2b-adeb-e57bb2bcfe0c" />
+<img width="1366" height="768" alt="app mockup sem6" src="https://github.com/user-attachments/assets/c41e68cc-8fda-4f2b-adeb-e57bb2bcfe0c" />
 
 -------
 #### Potentially Helpful Resources
