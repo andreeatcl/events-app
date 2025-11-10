@@ -35,6 +35,10 @@ Aplicatie dezvoltata in cadrul seminarului de **Dispozitive si Aplicatii Mobile*
 - afisarea evenimentelor salvate intr-un *ListView*
 - proiectarea unei *machete* personalizate pentru elementele din lista
 - implementarea unui adaptor custom `AdaptorEvenimente` pentru afisarea detaliilor despre evenimente
+- _popularea tuturor controalelor din macheta aferentă elementelor din listă_
+- _afișarea specifică a elementelor din listă (culoare diferită pe categorie de eveniment)_
+<img width="711" height="400" alt="app mockup sem6" src="https://github.com/user-attachments/assets/c41e68cc-8fda-4f2b-adeb-e57bb2bcfe0c" />
+
 -------
 #### Potentially Helpful Resources
 - [Material Design 3](https://m3.material.io/)
