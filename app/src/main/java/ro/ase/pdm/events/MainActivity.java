@@ -6,11 +6,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
@@ -31,6 +36,35 @@ public class MainActivity extends AppCompatActivity {
     // ArrayAdapter<Eveniment> adaptor;
     AdaptorEvenimente adaptor;
     ListView listViewEvenimente;
+
+    // launcher -> activity result contract + activity result callback
+    ActivityResultLauncher<Intent> launcherAddEdit = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult o) {
+                    // aici preluam evenimentul din Intent
+                    if(o.getResultCode() == RESULT_OK) {
+                        Intent intent = o.getData();
+
+                        if (intent != null) {
+                            Eveniment eveniment =
+                                    (Eveniment)intent.getSerializableExtra("EVENIMENT");
+
+                            if (eveniment != null) {
+                                // pozitie == -1 -> eveniment nou
+                              /*  evenimente.add(eveniment);
+                                adaptor.notifyDataSetChanged(); */
+                                adaptor.add(eveniment); // daca folosim arrayadaptor de clasa de baza
+                                // pozitie != -1 -> eveniment existent
+                                // evenimente.set(pozitie, eveniment);
+                            }
+                        }
+                    }
+                }
+            }
+    );
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,AddActivity.class);
-                startActivity(intent);
+                // startActivity(intent);
+                launcherAddEdit.launch(intent);
             }
         });
 
@@ -67,6 +102,17 @@ public class MainActivity extends AppCompatActivity {
         // adaptor = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, evenimente);
         adaptor = new AdaptorEvenimente(this, evenimente);
         listViewEvenimente.setAdapter(adaptor);
+
+        listViewEvenimente.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                /*
+                - parametri: evenimentul din lista de la pozitia position
+                        pozitia position a evenimentului selectat
+                - rezultat: obiectul Eveniment modificat
+                 */
+            }
+        });
     }
 
 

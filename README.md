@@ -40,6 +40,10 @@ Aplicatie dezvoltata in cadrul seminarului de **Dispozitive si Aplicatii Mobile*
 <img width="1366" height="768" alt="app mockup sem6" src="https://github.com/user-attachments/assets/c41e68cc-8fda-4f2b-adeb-e57bb2bcfe0c" />
 
 -------
+### Seminar 7
+- afisarea dinamica a evenimentelor salvate prin formular, folosind `ActivityResultLauncher`
+
+-------
 #### Potentially Helpful Resources
 - [Material Design 3](https://m3.material.io/)
 - [Material Components Docs](https://github.com/material-components/material-components-android/tree/master/docs)
