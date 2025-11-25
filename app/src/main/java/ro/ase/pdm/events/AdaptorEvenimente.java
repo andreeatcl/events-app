@@ -50,6 +50,7 @@ public class AdaptorEvenimente extends ArrayAdapter<Eveniment> {
         textViewDescriere.setText(eveniment.getDescriere());
 
         // coloram diferit in functie de pozitie in lista
+        // sem 9 to do - de ce se coloreaza incorect evenimentele dupa import json?
         if (position % 2 == 0) {
             view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.pale_turquoise));
         }
@@ -57,6 +58,7 @@ public class AdaptorEvenimente extends ArrayAdapter<Eveniment> {
         // evidentiem diferit in functie de categorie
         switch (eveniment.getCategorie()) {
             case "Conferinta":
+            case "Conference":
                 textViewCategorie.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.pastel_blue));
                 break;
             case "Hackathon":

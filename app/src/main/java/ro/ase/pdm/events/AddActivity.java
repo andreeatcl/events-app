@@ -20,24 +20,31 @@ import ro.ase.pdm.events.model.Eveniment;
 
 public class AddActivity extends AppCompatActivity {
 
+    EditText editTextDenumire, editTextData, editTextOra, editTextLocul, editTextDescriere;
+    Spinner spinnerCategorie;
+    Eveniment eveniment = null;
+    int pozitie = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_add);
 
+        initControale();
+        Intent intent = getIntent();
+
+        eveniment = (Eveniment) intent.getSerializableExtra(MainActivity.CHEIE_EVENIMENT);
+        if (eveniment != null) {
+            pozitie = intent.getIntExtra(MainActivity.CHEIE_POZITIE, -1);
+            populeazaControale();
+        }
+
         MaterialToolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         Button btnSalveaza = findViewById(R.id.buttonSalveaza);
         btnSalveaza.setOnClickListener(view -> {
-
-            EditText editTextDenumire = findViewById(R.id.editTextDenumire);
-            Spinner spinnerCategorie = findViewById(R.id.spinnerTip);
-            EditText editTextData = findViewById(R.id.editTextData);
-            EditText editTextOra = findViewById(R.id.editTextOra);
-            EditText editTextLocul = findViewById(R.id.editTextLocul);
-            EditText editTextDescriere = findViewById(R.id.editTextDescriere);
 
             String denumire = editTextDenumire.getText().toString();
             String categorie = spinnerCategorie.getSelectedItem().toString();
@@ -48,7 +55,9 @@ public class AddActivity extends AppCompatActivity {
             try {
                 Eveniment eveniment = new Eveniment(denumire, categorie, data, locul, descriere);
                 Toast.makeText(this, "S-a salvat evenimentul" + eveniment, Toast.LENGTH_LONG).show();
-                setResult(RESULT_OK, new Intent().putExtra("EVENIMENT", eveniment));
+                setResult(RESULT_OK, new Intent()
+                        .putExtra(MainActivity.CHEIE_EVENIMENT, eveniment)
+                        .putExtra(MainActivity.CHEIE_POZITIE, pozitie));
                 finish();
             }
             catch (Exception e) {
@@ -62,5 +71,21 @@ public class AddActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    void initControale() {
+        editTextDenumire = findViewById(R.id.editTextDenumire);
+        spinnerCategorie = findViewById(R.id.spinnerTip);
+        editTextData = findViewById(R.id.editTextData);
+        editTextOra = findViewById(R.id.editTextOra);
+        editTextLocul = findViewById(R.id.editTextLocul);
+        editTextDescriere = findViewById(R.id.editTextDescriere);
+    }
+
+    void populeazaControale() {
+        editTextDenumire.setText(eveniment.getDenumire());
+        // etc - to do
+        editTextLocul.setText(eveniment.getLoculDesfasurarii());
+        editTextDescriere.setText(eveniment.getDescriere());
     }
 }

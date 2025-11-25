@@ -1,4 +1,3 @@
-
 # CSIE AN 3 - SEM 1 - Aplicatie Seminar DAM
 
 ## About
@@ -6,7 +5,9 @@ Aplicatie dezvoltata in cadrul seminarului de **Dispozitive si Aplicatii Mobile*
 
 ## Features
 - Activitati: **Main**, **Despre**, **Add**
-- Preluarea datelor si salvarea lor intr-un obiect de tip Eveniment
+- Preluarea datelor, salvarea si modificarea unui obiect de tip Eveniment
+- Afisarea evenimentelor in activitatea principala
+- Incarcarea datelor dintr-un fisier JSON extern
 
 ## Development Log 🏗
 
@@ -42,6 +43,11 @@ Aplicatie dezvoltata in cadrul seminarului de **Dispozitive si Aplicatii Mobile*
 -------
 ### Seminar 7
 - afisarea dinamica a evenimentelor salvate prin formular, folosind `ActivityResultLauncher`
+
+-------
+### Seminar 9
+- implementarea functionalitatii de modificare a unui eveniment existent
+- incarcarea evenimentelor dintr-un fisier *JSON* extern
 
 -------
 #### Potentially Helpful Resources

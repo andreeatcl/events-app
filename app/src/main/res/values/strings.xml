@@ -17,6 +17,7 @@
     <string name="ora_placeholder">HH:MM</string>
     <string name="fulldata_placeholder">DD/MM/YYYY HH:MM</string>
     <string name="categorie_placeholder">Categorie</string>
+    <string name="incarca">Incarca</string>
     <string-array name="categorii">
         <item>Conferinta</item>
         <item>Hackathon</item>
