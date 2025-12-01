@@ -48,6 +48,7 @@ Aplicatie dezvoltata in cadrul seminarului de **Dispozitive si Aplicatii Mobile*
 ### Seminar 9
 - implementarea functionalitatii de modificare a unui eveniment existent
 - incarcarea evenimentelor dintr-un fisier *JSON* extern
+<img width="1366" height="768" alt="app mockup sem9" src="https://github.com/user-attachments/assets/463e5eb0-adc5-49de-ba93-a3bc5a028412" />
 
 -------
 #### Potentially Helpful Resources
