@@ -6,13 +6,15 @@ public class Eveniment implements Serializable {
     String denumire;
     String categorie;
     String data;
+    String ora;
     String loculDesfasurarii;
     String descriere;
 
-    public Eveniment(String denumire, String categorie, String data, String loculDesfasurarii, String descriere) throws Exception {
+    public Eveniment(String denumire, String categorie, String data, String ora, String loculDesfasurarii, String descriere) throws Exception {
         setDenumire(denumire);
         setCategorie(categorie);
         setData(data);
+        setOra(ora);
         setLoculDesfasurarii(loculDesfasurarii);
         setDescriere(descriere);
     }
@@ -47,10 +49,21 @@ public class Eveniment implements Serializable {
     }
 
     public void setData(String data) throws Exception {
-        if (data.isEmpty() || !data.matches("^\\d{2}/\\d{2}/\\d{4}\\s\\d{2}:\\d{2}$"))
+        if (data.isEmpty() || !data.matches("^\\d{4}-\\d{2}-\\d{2}$"))
             throw new Exception("Data evenimentului nu este valida.");
 
         this.data = data;
+    }
+
+    public String getOra() {
+        return ora;
+    }
+
+    public void setOra(String ora) throws Exception {
+        if (ora.isEmpty() || !ora.matches("^\\d{2}:\\d{2}$"))
+            throw new Exception("Ora evenimentului nu este valida.");
+
+        this.ora = ora;
     }
 
     public String getLoculDesfasurarii() {
@@ -78,6 +91,7 @@ public class Eveniment implements Serializable {
                 "denumire='" + denumire + '\'' +
                 ", categorie='" + categorie + '\'' +
                 ", data='" + data + '\'' +
+                ", ora='" + ora + '\'' +
                 ", loculDesfasurarii='" + loculDesfasurarii + '\'' +
                 ", descriere='" + descriere + '\'' +
                 '}';

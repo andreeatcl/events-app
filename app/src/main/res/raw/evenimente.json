@@ -1,0 +1,93 @@
+[
+  {
+    "_id": 1,
+    "categorie": "Conference",
+    "data": "2025-03-12",
+    "ora": "10:00",
+    "locatia": "Aula Magna",
+    "descriere": "Conferință despre inovația în tehnologie organizată de facultatea de informatică.",
+    "denumire": "Tech Innovation Summit"
+  },
+  {
+    "_id": 2,
+    "categorie": "Workshop",
+    "data": "2025-03-18",
+    "ora": "14:00",
+    "locatia": "Laboratorul 2304",
+    "descriere": "Atelier practic de programare în Python pentru începători.",
+    "denumire": "Python Basics Workshop"
+  },
+  {
+    "_id": 3,
+    "categorie": "Concert",
+    "data": "2025-04-02",
+    "ora": "19:30",
+    "locatia": "Casa de Cultură a Studenților",
+    "descriere": "Concert live susținut de trupa studențească 'Campus Vibes'.",
+    "denumire": "Spring Student Concert"
+  },
+  {
+    "_id": 4,
+    "categorie": "Sports",
+    "data": "2025-04-10",
+    "ora": "16:00",
+    "locatia": "Sala de Sport",
+    "descriere": "Competiție amicală de baschet între diferite facultăți.",
+    "denumire": "Interfaculty Basketball Cup"
+  },
+  {
+    "_id": 5,
+    "categorie": "Networking",
+    "data": "2025-05-05",
+    "ora": "18:00",
+    "locatia": "Biblioteca Centrală",
+    "descriere": "Întâlnire informală cu absolvenți și profesioniști din IT.",
+    "denumire": "IT Alumni Meetup"
+  },
+  {
+    "_id": 6,
+    "categorie": "Workshop",
+    "data": "2025-03-25",
+    "ora": "13:00",
+    "locatia": "Sala B301",
+    "descriere": "Workshop de dezvoltare personală și managementul timpului.",
+    "denumire": "Time Management Skills"
+  },
+  {
+    "_id": 7,
+    "categorie": "Conference",
+    "data": "2025-05-20",
+    "ora": "09:30",
+    "locatia": "Amf. 2204",
+    "descriere": "Conferință despre sustenabilitate și mediu, cu invitați din industrie.",
+    "denumire": "Green Future Conference"
+  },
+  {
+    "_id": 8,
+    "categorie": "Concert",
+    "data": "2025-04-28",
+    "ora": "20:00",
+    "locatia": "Grădina Ciberneticii",
+    "descriere": "Seară muzicală în aer liber, featuring DJ studenți.",
+    "denumire": "Campus Night Beats"
+  },
+  {
+    "_id": 9,
+    "categorie": "Sports",
+    "data": "2025-06-01",
+    "ora": "10:00",
+    "locatia": "Terenul de fotbal Tei",
+    "descriere": "Turneu de fotbal dedicat echipelor de studenți.",
+    "denumire": "Student Football League"
+  },
+  {
+    "_id": 10,
+    "categorie": "Networking",
+    "data": "2025-05-15",
+    "ora": "17:00",
+    "locatia": "Cafetaria Moxa",
+    "descriere": "Seară de socializare pentru studenți din ani și specializări diferite.",
+    "denumire": "Campus Social Evening"
+  }
+]
+

@@ -16,6 +16,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
+import java.util.Arrays;
+import java.util.List;
+
 import ro.ase.pdm.events.model.Eveniment;
 
 public class AddActivity extends AppCompatActivity {
@@ -48,12 +51,13 @@ public class AddActivity extends AppCompatActivity {
 
             String denumire = editTextDenumire.getText().toString();
             String categorie = spinnerCategorie.getSelectedItem().toString();
-            String data = editTextData.getText().toString() + " " + editTextOra.getText().toString();
+            String data = editTextData.getText().toString();
+            String ora = editTextOra.getText().toString();
             String locul = editTextLocul.getText().toString();
             String descriere = editTextDescriere.getText().toString();
 
             try {
-                Eveniment eveniment = new Eveniment(denumire, categorie, data, locul, descriere);
+                Eveniment eveniment = new Eveniment(denumire, categorie, data, ora, locul, descriere);
                 Toast.makeText(this, "S-a salvat evenimentul" + eveniment, Toast.LENGTH_LONG).show();
                 setResult(RESULT_OK, new Intent()
                         .putExtra(MainActivity.CHEIE_EVENIMENT, eveniment)
@@ -84,8 +88,23 @@ public class AddActivity extends AppCompatActivity {
 
     void populeazaControale() {
         editTextDenumire.setText(eveniment.getDenumire());
-        // etc - to do
+        editTextData.setText(eveniment.getData());
+        editTextOra.setText(eveniment.getOra());
         editTextLocul.setText(eveniment.getLoculDesfasurarii());
         editTextDescriere.setText(eveniment.getDescriere());
+
+        // spinner categorie
+        String categorie = eveniment.getCategorie();
+        String[] categorii = this.getResources().getStringArray(R.array.categorii);
+
+        List<String> listaCategorii = Arrays.asList(categorii);
+        int position = listaCategorii.indexOf(categorie);
+
+        if (position >= 0) {
+            spinnerCategorie.setSelection(position);
+        } else {
+            spinnerCategorie.setSelection(0);
+        }
+
     }
 }

@@ -13,7 +13,7 @@
     <string name="descriere_placeholder">Descrieti eveniment</string>
     <string name="salveaza">Salveaza</string>
     <string name="denumire_placeholder">Numele evenimentului</string>
-    <string name="data_placeholder">DD/MM/YYYY</string>
+    <string name="data_placeholder">YYYY-MM-DD</string>
     <string name="ora_placeholder">HH:MM</string>
     <string name="fulldata_placeholder">DD/MM/YYYY HH:MM</string>
     <string name="categorie_placeholder">Categorie</string>

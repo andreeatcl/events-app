@@ -45,14 +45,15 @@ public class AdaptorEvenimente extends ArrayAdapter<Eveniment> {
         // 4. populare controale macheta
         textViewDenumire.setText(eveniment.getDenumire());
         textViewCategorie.setText(eveniment.getCategorie());
-        textViewData.setText(eveniment.getData());
+        textViewData.setText(eveniment.getData() + " " + eveniment.getOra());
         textViewLoc.setText(eveniment.getLoculDesfasurarii());
         textViewDescriere.setText(eveniment.getDescriere());
 
         // coloram diferit in functie de pozitie in lista
-        // sem 9 to do - de ce se coloreaza incorect evenimentele dupa import json?
         if (position % 2 == 0) {
             view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.pale_turquoise));
+        } else {
+            view.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
         }
 
         // evidentiem diferit in functie de categorie

@@ -28,6 +28,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
+import ro.ase.pdm.events.data.LocalData;
 import ro.ase.pdm.events.data.RemoteData;
 import ro.ase.pdm.events.model.Eveniment;
 
@@ -95,9 +96,9 @@ public class MainActivity extends AppCompatActivity {
 
         listViewEvenimente = findViewById(R.id.listViewEvenimente);
         try {
-            evenimente.add(new Eveniment("ITFest Hackathon", "Hackathon", "20/11/2025 17:00", "Bucuresti, Romania", "Un hackathon pentru studentii CSIE"));
-            evenimente.add(new Eveniment("DevCon", "Conferinta", "25/11/2025 09:45", "Bucuresti, Romania", "O conferinta pentru dezvoltatori si pasionati de IT"));
-            evenimente.add(new Eveniment("ASE Job Fair", "Targ de joburi", "30/11/2025 12:30", "Bucuresti, Romania", "Un targ de joburi si internships destinat studentilor ASE"));
+            evenimente.add(new Eveniment("ITFest Hackathon", "Hackathon", "2025-11-20", "17:00", "Bucuresti, Romania", "Un hackathon pentru studentii CSIE"));
+            evenimente.add(new Eveniment("DevCon", "Conferinta", "2025-11-25", "09:45", "Bucuresti, Romania", "O conferinta pentru dezvoltatori si pasionati de IT"));
+            evenimente.add(new Eveniment("ASE Job Fair", "Targ de joburi", "2025-11-30", "12:30", "Bucuresti, Romania", "Un targ de joburi si internships destinat studentilor ASE"));
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -128,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (item.getItemId() == R.id.action_despre) {
-            Intent intent = new Intent(this,DespreActivity.class);
+            Intent intent = new Intent(this, DespreActivity.class);
             startActivity(intent);
             return true;
         }
@@ -139,8 +140,9 @@ public class MainActivity extends AppCompatActivity {
                         // codul se executa intr-un alt fir
                         // evenimente.clear();
                         try {
-                            evenimente.addAll(
-                                    RemoteData.incarcaEvenimente("https://pastebin.com/raw/5futYXie"));
+                            //evenimente.addAll(
+                            //        RemoteData.incarcaEvenimente("https://pastebin.com/raw/5futYXie"));
+                            evenimente.addAll(LocalData.incarcaEvenimente(this));
                             // codul se executa in firul principal
                             runOnUiThread(() -> adaptor.notifyDataSetChanged());
 

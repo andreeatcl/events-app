@@ -22,7 +22,11 @@ public class RemoteData {
             Eveniment eveniment = new Eveniment();
             eveniment.setDenumire(object.getString("denumire"));
             eveniment.setCategorie(object.getString("categorie"));
-            //etc - to do - parse json date obj or change app date format
+            eveniment.setData(object.getString("data"));
+            eveniment.setOra(object.getString("ora"));
+            eveniment.setLoculDesfasurarii(object.getString("locatia"));
+            eveniment.setDescriere(object.getString("descriere"));
+
             evenimente.add(eveniment);
         }
 
