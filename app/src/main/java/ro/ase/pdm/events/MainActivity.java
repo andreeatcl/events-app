@@ -28,6 +28,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
+import ro.ase.pdm.events.data.EvenimenteDatabase;
 import ro.ase.pdm.events.data.LocalData;
 import ro.ase.pdm.events.data.RemoteData;
 import ro.ase.pdm.events.model.Eveniment;
@@ -57,6 +58,11 @@ public class MainActivity extends AppCompatActivity {
                                 int pozitie = intent.getIntExtra(CHEIE_POZITIE, -1);
                                 if (pozitie == -1) {
                                     evenimente.add(eveniment);
+                                    new Thread(
+                                            () -> {
+                                                EvenimenteDatabase.getInstance(getApplicationContext()).getEvenimentDao().insert(eveniment);
+                                            }
+                                    ).start();
                                 } else {
                                     evenimente.set(pozitie, eveniment);
                                 }
@@ -96,9 +102,18 @@ public class MainActivity extends AppCompatActivity {
 
         listViewEvenimente = findViewById(R.id.listViewEvenimente);
         try {
-            evenimente.add(new Eveniment("ITFest Hackathon", "Hackathon", "2025-11-20", "17:00", "Bucuresti, Romania", "Un hackathon pentru studentii CSIE"));
-            evenimente.add(new Eveniment("DevCon", "Conferinta", "2025-11-25", "09:45", "Bucuresti, Romania", "O conferinta pentru dezvoltatori si pasionati de IT"));
-            evenimente.add(new Eveniment("ASE Job Fair", "Targ de joburi", "2025-11-30", "12:30", "Bucuresti, Romania", "Un targ de joburi si internships destinat studentilor ASE"));
+            // codul ar trb sa fie altundeva?
+            // evenimente.add(new Eveniment("ITFest Hackathon", "Hackathon", "2025-11-20", "17:00", "Bucuresti, Romania", "Un hackathon pentru studentii CSIE"));
+            // evenimente.add(new Eveniment("DevCon", "Conferinta", "2025-11-25", "09:45", "Bucuresti, Romania", "O conferinta pentru dezvoltatori si pasionati de IT"));
+            // evenimente.add(new Eveniment("ASE Job Fair", "Targ de joburi", "2025-11-30", "12:30", "Bucuresti, Romania", "Un targ de joburi si internships destinat studentilor ASE"));
+
+            // runnable in constructorul thread
+            new Thread(() -> {evenimente.addAll(EvenimenteDatabase.getInstance(getApplicationContext()).getEvenimentDao().getAll());
+                runOnUiThread(() -> {
+                    adaptor = new AdaptorEvenimente(this, evenimente);
+                    listViewEvenimente.setAdapter(adaptor);
+                });
+            }).start();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

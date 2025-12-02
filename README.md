@@ -51,6 +51,11 @@ Aplicatie dezvoltata in cadrul seminarului de **Dispozitive si Aplicatii Mobile*
 <img width="1366" height="768" alt="app mockup sem9" src="https://github.com/user-attachments/assets/463e5eb0-adc5-49de-ba93-a3bc5a028412" />
 
 -------
+### Seminar 10
+- implementarea persistentei datelor folosind o baza de date Room
+- realizarea operatiilor de inserare si citire a evenimentelor din baze de date
+
+-------
 #### Potentially Helpful Resources
 - [Material Design 3](https://m3.material.io/)
 - [Material Components Docs](https://github.com/material-components/material-components-android/tree/master/docs)
