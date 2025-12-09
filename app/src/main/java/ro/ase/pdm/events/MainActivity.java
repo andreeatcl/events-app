@@ -1,6 +1,8 @@
 package ro.ase.pdm.events;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -10,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.activity.result.ActivityResult;
@@ -26,8 +29,11 @@ import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
+import ro.ase.pdm.events.data.EvenimentDAO;
 import ro.ase.pdm.events.data.EvenimenteDatabase;
 import ro.ase.pdm.events.data.LocalData;
 import ro.ase.pdm.events.data.RemoteData;
@@ -100,6 +106,24 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        // afisare data ultima accesare
+        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        String cheie = getString(R.string.last_opened);
+        String lastOpened = sharedPref.getString(cheie, "");
+
+        if (lastOpened.isEmpty()) {
+            Date currentTime = Calendar.getInstance().getTime();
+            lastOpened = currentTime.toString();
+            Toast.makeText(this, "Bine ati venit!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Ultima accesare: " + lastOpened, Toast.LENGTH_SHORT).show();
+        }
+
+        Date currentTime = Calendar.getInstance().getTime();
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString(cheie, currentTime.toString());
+        editor.apply();
+
         listViewEvenimente = findViewById(R.id.listViewEvenimente);
         try {
             // codul ar trb sa fie altundeva?
@@ -129,6 +153,21 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(CHEIE_EVENIMENT, evenimente.get(position));
                 intent.putExtra(CHEIE_POZITIE, position);
                 launcherAddEdit.launch(intent);
+            }
+        });
+
+        // long click => stergere eveniment din lv si DB
+        listViewEvenimente.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                Eveniment eveniment = evenimente.get(position);
+                new Thread(() -> {
+                    EvenimenteDatabase.getInstance(getApplicationContext()).getEvenimentDao().delete(eveniment);
+                }).start();
+                evenimente.remove(position);
+                adaptor.notifyDataSetChanged();
+
+                return true;
             }
         });
     }
@@ -166,6 +205,12 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
             ).start();
+        }
+
+        // sortare evenimente in functie de data
+        if (item.getItemId() == R.id.action_sorteaza) {
+            evenimente.sort((e1, e2) -> e1.getData().compareTo(e2.getData()));
+            adaptor.notifyDataSetChanged();
         }
 
         return super.onOptionsItemSelected(item);

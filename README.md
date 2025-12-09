@@ -8,6 +8,7 @@ Aplicatie dezvoltata in cadrul seminarului de **Dispozitive si Aplicatii Mobile*
 - Preluarea datelor, salvarea si modificarea unui obiect de tip Eveniment
 - Afisarea evenimentelor in activitatea principala
 - Incarcarea datelor dintr-un fisier JSON extern
+- Persistenta datelor intr-o baza de date Room (+ operatii CRUD)
 
 ## Development Log 🏗
 
@@ -18,7 +19,7 @@ Aplicatie dezvoltata in cadrul seminarului de **Dispozitive si Aplicatii Mobile*
 ### Seminar 4
 - crearea activitatii **Add**, pentru adaugarea unui eveniment
 - implementarea campurilor de **input** pentru preluarea datelor despre un eveniment
-- folosirea componentelor de tip **TextView**, **EditText**, **Spinner**, **TextInputLayout**, **TextInputEditText**
+- folosirea componentelor de tip *TextView*, *EditText**, **Spinner*, *TextInputLayout*, *TextInputEditText*
 - _aranjarea componentelor in layout_
 - _adaugarea unor componente de tip **Toolbar**_
 - _inlocuirea textului hardcodat cu resurse string in `strings.xml`_
@@ -33,7 +34,7 @@ Aplicatie dezvoltata in cadrul seminarului de **Dispozitive si Aplicatii Mobile*
 
 -------
 ### Seminar 6
-- afisarea evenimentelor salvate intr-un *ListView*
+- afisarea evenimentelor salvate intr-un **ListView**
 - proiectarea unei *machete* personalizate pentru elementele din lista
 - implementarea unui adaptor custom `AdaptorEvenimente` pentru afisarea detaliilor despre evenimente
 - _popularea tuturor controalelor din macheta aferentă elementelor din listă_
@@ -47,13 +48,19 @@ Aplicatie dezvoltata in cadrul seminarului de **Dispozitive si Aplicatii Mobile*
 -------
 ### Seminar 9
 - implementarea functionalitatii de modificare a unui eveniment existent
-- incarcarea evenimentelor dintr-un fisier *JSON* extern
+- incarcarea evenimentelor dintr-un fisier **JSON** extern
 <img width="1366" height="768" alt="app mockup sem9" src="https://github.com/user-attachments/assets/463e5eb0-adc5-49de-ba93-a3bc5a028412" />
 
 -------
 ### Seminar 10
-- implementarea persistentei datelor folosind o baza de date Room
+- implementarea persistentei datelor folosind o **baza de date Room**
 - realizarea operatiilor de inserare si citire a evenimentelor din baze de date
+
+-------
+### Seminar 11
+- sortarea evenimentelor in functie de data
+- stocarea datelor in `SharedPreferences` (ultima accesare a aplicatiei)
+- stergerea unui eveniment din ListView si din baza de date **onLongClick**
 
 -------
 #### Potentially Helpful Resources

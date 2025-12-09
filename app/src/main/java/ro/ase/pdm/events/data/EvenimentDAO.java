@@ -1,6 +1,7 @@
 package ro.ase.pdm.events.data;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -19,5 +20,7 @@ public interface EvenimentDAO {
 
     // @Update
     // @Delete - un singur element
+    @Delete
+    void delete(Eveniment eveniment);
 
 }
